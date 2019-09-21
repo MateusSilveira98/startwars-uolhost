@@ -21,7 +21,8 @@ const actions = {
     const results = getAll('peoples');
     for (let index = results.length - 1; index >= 0 ; index--) {
       results[index].films = findArrayProps(results[index].films, 'films');
-      results[index].species = findArrayProps(results[index].species, 'species');
+      let species = findArrayProps(results[index].species, 'species');
+      results[index].specie = species.length > 0 ? species[0] : {name: 'Desconhecida'};
       results[index].homeworld = getById({entity: 'planets', id: results[index].homeworld});
     }
     commit('GET_ALL_PEOPLES', {results})

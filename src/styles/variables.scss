@@ -1,0 +1,93 @@
+// COLORS
+$yellow: #fff521;
+$red: #680c0a;
+$blue: #0388a9;
+
+// FONT SIZES
+$font12px: 0.75rem;
+$font16px: 1rem;
+$font17px: 1.0625rem;
+$font19px: 1.1875rem;
+$font20px: 1.25rem;
+$font23px: 1.4375rem;
+
+.text-yellow {
+  color: $yellow
+}
+.text-white {
+  color: white
+}
+.text-red {
+  color: $red
+}
+.text-blue {
+  color: $blue
+}
+.text-black {
+  color: black
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.flex {
+  display: flex;
+  &.justify-around {
+    justify-content: space-around;
+  }
+  &.justify-between {
+    justify-content: space-between;
+  }
+  &.justify-center {
+    justify-content: center;
+  }
+  &.justify-start {
+    justify-content: flex-start;
+  }
+  &.justify-end {
+    justify-content: flex-end;
+  }
+  &.align-items-center {
+    align-items: center;
+  }
+  &.align-items-start {
+    align-items: flex-start;
+  }
+  &.align-items-end {
+    align-items: flex-end;
+  }
+}
+@for $i from 1 through 100 {
+  $value: ($i + 1em) - 1em;
+  .margin-top-#{$i} {
+    margin-top: $value;
+  }
+  .margin-bottom-#{$i} {
+    margin-bottom: $value;
+  }
+  .margin-left-#{$i} {
+    margin-left: $value;
+  }
+  .margin-right-#{$i} {
+    margin-right: $value;
+  }
+  .margin-#{$i} {
+    margin: $value;
+  }
+  .padding-top-#{$i} {
+    padding-top: $value;
+  }
+  .padding-bottom-#{$i} {
+    padding-bottom: $value;
+  }
+  .padding-left-#{$i} {
+    padding-left: $value;
+  }
+  .padding-right-#{$i} {
+    padding-right: $value;
+  }
+  .padding-#{$i} {
+    margin: $value;
+  }
+}

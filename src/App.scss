@@ -1,57 +1,16 @@
+@import "./styles/index.scss";
 @import "~bulma/bulma";
 @import "~animate.css/animate.css";
-@import "./assets/icons/css/font-awesome.css";
-
+@import "~/assets/icons/css/font-awesome.css";
 * {
   margin: 0;
   padding: 0;
   text-decoration: none;
 }
-.flex {
-  display: flex;
-  &.justify-around {
-    justify-content: space-around;
-  }
-  &.justify-between {
-    justify-content: space-between;
-  }
-  &.justify-center {
-    justify-content: center;
-  }
-  &.justify-start {
-    justify-content: flex-start;
-  }
-  &.justify-end {
-    justify-content: flex-end;
-  }
-  &.align-items-center {
-    align-items: center;
-  }
-  &.align-items-start {
-    align-items: flex-start;
-  }
-  &.align-items-end {
-    align-items: flex-end;
-  }
+
+.select, select, input, .input {
+  min-width: 100%;
 }
-@for $i from 1 through 100 {
-  $value: ($i + 1em) - 1em;
-  .margin-top-#{$i} {
-    margin-top: $value;
-  }
-  .margin-bottom-#{$i} {
-    margin-bottom: $value;
-  }
-  .margin-left-#{$i} {
-    margin-left: $value;
-  }
-  .margin-right-#{$i} {
-    margin-right: $value;
-  }
-}
-@for $i from 1 through 100 {
-  $value: ($i + 1rem) - 1rem;
-  .font-#{$i} {
-    font-size: $value !important;
-  }
+.field.has-addons .control:not(:last-child) {
+  width: 100%;
 }

@@ -3,7 +3,9 @@
     <section class="section">
       <h1 class="title">Filmes</h1>
       <div class="card">
-        <p>{{film.title}}</p>
+        <div class="card-title">
+          <p>{{film.title}}</p>
+        </div>
         <p>{{film.episode_id}}</p>
         <p>{{film.opening_crawl}}</p>
         <p>{{film.director}}</p>
@@ -12,6 +14,7 @@
         <p v-for="people in film.characters" :key="`people-${people.id}`">{{people.name}}</p>
         <p v-for="planet in film.planets" :key="`planet-${planet.id}`">{{planet.name}}</p>
         <p v-for="specie in film.species" :key="`specie-${specie.id}`">{{specie.name}}</p>
+        <router-link to='/'>Voltar</router-link>
       </div>
     </section>
   </article>
