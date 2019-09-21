@@ -3,7 +3,6 @@ export default {
   getAll({ commit }, entity) {
     commit('LOADING');
     const response = getAll(entity);
-    console.log(response)
     commit('GET_ALL', { payload: response });
     commit('LOADING');
   },

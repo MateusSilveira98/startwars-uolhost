@@ -2,8 +2,15 @@
   <article class="peoples">
     <section class="section">
       <h1 class="title">Personagens</h1>
-      <div class="" v-for="people in all" :key="people.id">
-        {{people}}
+      <div class="card" v-for="people in all" :key="people.id">
+        <p>{{people.name}}</p>
+        <p>{{people.birth_year}}</p>
+        <p>{{people.gender | gender}}</p>
+        <p>{{people.homeworld.name}}</p>
+        <router-link :to="`film/${film.id}`" v-for="film in people.films" :key="`film-${people.id}${film.id}`">
+          <p>{{film.title}}</p>
+        </router-link>
+        <p v-for="specie in people.species" :key="`specie-${people.id}${specie.id}`">{{specie.name}}</p>
       </div>
     </section>
   </article>
@@ -15,7 +22,7 @@ import _ from "lodash";
 export default {
   computed: {
     ...mapState({
-      allPeoples: state => state.all
+      allPeoples: state => state.Peoples.allPeoples
     })
   },
   data() {
@@ -27,12 +34,11 @@ export default {
   },
   watch: {
     allPeoples(value) {
-      console.log(value)
-      this.all = value;
+      this.all = _.orderBy(value, [obj => obj.films.length], ["desc"]);
     }
   },
   methods: {
-    ...mapActions(["getAll", "getById"]),
+    ...mapActions(["getAllPeoples"]),
       searchPeoples(search) {
       search = search.toLowerCase();
       let split = search.split('');
@@ -52,7 +58,7 @@ export default {
     }
   },
   mounted() {
-    this.getAll('peoples');
+    this.getAllPeoples();
   }
 };
 </script>

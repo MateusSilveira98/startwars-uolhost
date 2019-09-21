@@ -21,6 +21,7 @@ const getEntity = (entity) => {
 export const getAll = (entity) => {
   return getEntity(entity)
 }
-export const getById = (entity, id) => {
-  return getEntity(entity).find(item => +item.id === +id);
+export const getById = ({entity, id}) => {
+  const json = getEntity(entity);
+  return json.find(item => +item.id === +id);
 }
