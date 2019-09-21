@@ -4,10 +4,17 @@
 ```
 npm install
 ```
-
+### Build image
+```
+docker build -t starwars-uolhost .
+```
+### Run with docker
+```
+docker run -it -p 8080:8080 starwars-uolhost
+```
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+npm run start
 ```
 
 ### Compiles and minifies for production
@@ -15,15 +22,7 @@ npm run serve
 npm run build
 ```
 
-### Run your tests
+### web site link
 ```
-npm run test
+https://starwars-uolhost.mateuscosta98dev.now.sh/
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
