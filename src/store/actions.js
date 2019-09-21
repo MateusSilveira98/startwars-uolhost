@@ -8,7 +8,7 @@ export default {
   },
   getById({ commit }, {entity, id}) {
     commit('LOADING');
-    const response = getById(entity, id);
+    const response = getById({entity, id});
     commit('GET_BY_ID', { payload: response });
     commit('LOADING');
   }

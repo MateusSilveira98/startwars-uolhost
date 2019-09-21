@@ -41,8 +41,9 @@ export default {
   methods: {
     ...mapActions(["getFilmById"])
   },
-  mounted() {
-    this.getFilmById(this.$route.params.id);
+  async mounted() {
+    const id = this.$route.params.id;
+    await this.getFilmById(id);
   }
 };
 </script>
@@ -65,27 +66,27 @@ export default {
   .peoples {
     display: grid;
     grid-template-columns: auto auto auto;
-    justify-content: space-between;
   }
 }
 
 @media (max-width: 850px) {
- .films {
-   .card {
-     .film-info {
-       display: inline-block;
-       p {
-         margin: 0 0 0.5em;
-       }
-     }
-   }
- }
+  .films {
+    .card {
+      .film-info {
+        display: inline-block;
+        p {
+          margin: 0 0 0.5em;
+        }
+      }
+    }
+  }
 }
 @media (max-width: 450px) {
- .films {
-   .peoples {
-     grid-template-columns: auto auto;
-   }
- }
+  .films {
+    .peoples {
+      grid-template-columns: auto auto;
+      justify-content: space-between;
+    }
+  }
 }
 </style>

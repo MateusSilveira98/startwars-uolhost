@@ -46,11 +46,11 @@
               </p>
               <p>
                 Planeta de origem:
-                <span class="text-yellow text-uppercase">{{people.homeworld.name}}</span>
+                <span class="text-yellow text-uppercase">{{people.homeworld}}</span>
               </p>
               <p>
                 Espécie:
-                <span class="text-yellow text-uppercase">{{people.specie.name}}</span>
+                <span class="text-yellow text-uppercase">{{people.specie}}</span>
               </p>
             </div>
             <div class="card-list">
@@ -68,7 +68,12 @@
           </div>
         </template>
         <template v-else>
-          <h1 class="title">Resultados não encontrado</h1>
+          <h1 class="title">
+            Resultados não encontrado
+            <p @click="reload()">
+              <a>Recarregar</a>
+            </p>
+          </h1>
         </template>
       </div>
     </section>
@@ -113,8 +118,8 @@ export default {
         this.all = this.allPeoples.filter(
           item =>
             item.name.toLowerCase().match(regex) ||
-            item.specie.name.toLowerCase().match(regex) ||
-            item.homeworld.name.toLowerCase().match(regex) ||
+            item.specie.toLowerCase().match(regex) ||
+            item.homeworld.toLowerCase().match(regex) ||
             this.getGender(item.gender)
               .toLowerCase()
               .match(regex)
@@ -122,20 +127,17 @@ export default {
       } else this.all = this.allPeoples;
     },
     setPeoplesOrder(orderBy) {
-      if (orderBy == "specie" || orderBy == "homeworld")
-        this.all = _.orderBy(
-          this.all,
-          [people => people[orderBy].name],
-          ["asc"]
-        );
-      else this.all = _.orderBy(this.all, [orderBy], ["asc"]);
+      this.all = _.orderBy(this.all, [orderBy], ["asc"]);
     },
     getGender(gender) {
       return gender == "male" ? "masculino" : "feminino";
+    },
+    reload() {
+      window.location.reload();
     }
   },
-  async mounted() {
-    await this.getAllPeoples();
+  mounted() {
+    this.getAllPeoples();
   }
 };
 </script>

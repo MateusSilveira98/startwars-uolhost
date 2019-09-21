@@ -1,4 +1,5 @@
-const localstorage = {
+import _ from 'lodash'
+export const localstorage = {
   set: (label, obj) => {
     window.localStorage.setItem(label, JSON.stringify(obj));
   },
@@ -13,6 +14,9 @@ const localstorage = {
     window.localStorage.clear();
   }
 }
-module.exports = {
-  localstorage
+export const findArrayProps = (array, entity, getById) => {
+  for (let i = array.length - 1; i >= 0; i--) {
+    array[i] = _.clone(getById({entity, id: array[i]}))
+  }
+  return array
 }

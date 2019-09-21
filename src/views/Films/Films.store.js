@@ -1,11 +1,5 @@
 import {getById} from '@/services/index';
-
-const findArrayProps = (array, entity) => {
-  for (let i = array.length - 1; i >= 0; i--) {
-    array[i] = getById({entity, id: array[i]})
-  }
-  return array
-}
+import {findArrayProps} from '@/utils/index';
 
 const state = {
   film: []
@@ -19,7 +13,7 @@ const actions = {
   getFilmById({commit}, id) {
     commit('LOADING')
     const result = getById({entity: 'films', id});
-    result.characters = findArrayProps(result.characters, 'peoples');
+    result.characters = findArrayProps(result.characters, 'peoples', getById);
     commit('GET_FILM_BY_ID', {result})
     commit('LOADING')
   }
