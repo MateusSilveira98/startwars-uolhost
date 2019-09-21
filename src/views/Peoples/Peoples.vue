@@ -98,7 +98,7 @@ export default {
   },
   watch: {
     allPeoples(value) {
-      this.all = _.orderBy(value, [people => people.films.length], ["desc"]);
+      this.all = _.orderBy(value, [people => people.films.length, 'name'], ["desc"]);
     }
   },
   methods: {
