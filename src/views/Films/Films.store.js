@@ -20,8 +20,6 @@ const actions = {
     commit('LOADING')
     const result = getById({entity: 'films', id});
     result.characters = findArrayProps(result.characters, 'peoples');
-    result.planets = findArrayProps(result.planets, 'planets');
-    result.species = findArrayProps(result.species, 'species');
     commit('GET_FILM_BY_ID', {result})
     commit('LOADING')
   }
